@@ -9,18 +9,28 @@
 #define SPIFFS_CONFIG_H_
 
 // ----------- 8< ------------
-// Following includes are for the linux test build of spiffs
-// These may/should/must be removed/altered/replaced in your target
-#include "params_test.h"
+//// Following includes are for the linux test build of spiffs
+//// These may/should/must be removed/altered/replaced in your target
+//#include "params_test.h"
+//#include <stdlib.h>
+
+
+//#include <unistd.h>
+//#ifdef _SPIFFS_TEST
+//#include "testrunner.h"
+//#endif
+// ----------- >8 ------------
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #include <stddef.h>
-#include <unistd.h>
-#ifdef _SPIFFS_TEST
-#include "testrunner.h"
-#endif
-// ----------- >8 ------------
+#include <stdint.h>
+
+typedef int32_t s32_t;
+typedef uint32_t u32_t;
+typedef int16_t s16_t;
+typedef uint16_t u16_t;
+typedef int8_t s8_t;
+typedef uint8_t u8_t;
 
 // compile time switches
 
@@ -48,6 +58,9 @@
 
 
 // Defines spiffs debug print formatters
+#ifndef _SPIPRIlu
+#define _SPIPRIlu   "%lu"
+#endif
 // some general signed number
 #ifndef _SPIPRIi
 #define _SPIPRIi   "%d"
