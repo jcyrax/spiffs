@@ -1437,15 +1437,15 @@ s32_t SPIFFS_vis(spiffs *fs) {
   } // per block
 
   spiffs_printf("era_cnt_max: "_SPIPRIi"\n", fs->max_erase_count);
-  spiffs_printf("last_errno:  "_SPIPRIi"\n", fs->err_code);
-  spiffs_printf("blocks:      "_SPIPRIi"\n", fs->block_count);
-  spiffs_printf("free_blocks: "_SPIPRIi"\n", fs->free_blocks);
-  spiffs_printf("page_alloc:  "_SPIPRIi"\n", fs->stats_p_allocated);
-  spiffs_printf("page_delet:  "_SPIPRIi"\n", fs->stats_p_deleted);
+  spiffs_printf("last_errno:  "_SPIPRIlu"\n", fs->err_code);
+  spiffs_printf("blocks:      "_SPIPRIlu"\n", fs->block_count);
+  spiffs_printf("free_blocks: "_SPIPRIlu"\n", fs->free_blocks);
+  spiffs_printf("page_alloc:  "_SPIPRIlu"\n", fs->stats_p_allocated);
+  spiffs_printf("page_delet:  "_SPIPRIlu"\n", fs->stats_p_deleted);
   SPIFFS_UNLOCK(fs);
   u32_t total, used;
   SPIFFS_info(fs, &total, &used);
-  spiffs_printf("used:        "_SPIPRIi" of "_SPIPRIi"\n", used, total);
+  spiffs_printf("used:        "_SPIPRIlu" of "_SPIPRIlu"\n", used, total);
   return res;
 }
 #endif
